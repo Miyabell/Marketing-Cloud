@@ -7,5 +7,7 @@ Simply place Example Email HTML content inside HTML contnt block. Has simple per
 
 ## AMPScript will:
 - display client information,
-- display previous purchases detail information
-- display 10% off code depending on count of previous purchases
+- display previous purchases detail information,
+- display 10% off code depending on count of previous purchases.
+
+GL & HF
