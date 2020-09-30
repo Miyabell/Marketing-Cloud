@@ -1,0 +1,187 @@
+<div style="color: white;">
+	<div>
+	%%[
+		Set @p_city = [city]
+		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "city_location", @p_city)
+
+		/* Display tournaments based on location */ 
+		if RowCount(@rows) >= 1 then
+	]%%    
+	<div>
+		Join us and check out our upcoming tournaments in %%=v(@p_city)=%%!
+	</div>    
+	%%[
+		for @i = 1 to RowCount(@rows) do
+			Set @row = Row(@rows, @i)
+			Set @date = Field(@row, "date")
+			Set @city_location = Field(@row, "city_location")
+			Set @name = Field(@row, "name")
+			Set @prize_pool = Field(@row, "prize_pool")
+			Set @currency = Field(@row, "currency")
+			Set @game_id = Field(@row, "game_id")
+	]%%    
+	<div style="margin-top:10px; 
+				margin-bottom:10px;">
+		<div style="margin-bottom: 15px;">
+			______________________________________
+		</div>
+		<div style="color: #FF7F00; 
+					padding: 5px; 
+					font-weight: bold; 
+					font-size: 14px;">
+			%%=v(@name)=%%  
+		</div>
+		<div style="padding-left: 15px; 
+					padding-bottom: 5px; 
+					font-size: 12px;">
+			%%=v(@city_location)=%%, %%=FormatDate(@date, "MMMM d, yyyy")=%%
+		</div>
+		<div style="color: #FF7F00; 
+					padding-left: 15px; 
+					font-size: 12px;"> 
+			Prize pool: %%=v(@prize_pool)=%% %%=v(@currency)=%%
+		</div>
+	</div>    
+	%%[
+		next @i 
+		endif 
+
+		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "city_location", @p_city)
+
+		/* If there is no tournaments in user location */
+		if RowCount(@rows) == 0 then    
+			Set @interest_rows = LookupOrderedRows("bg_user_interest", 3, "id asc", "id_user", [id])    
+
+		/* Count tournaments based on interests */  
+		Set @flaga = 0 
+
+		for @m = 1 to RowCount (@interest_rows) do
+			Set @row = Row(@interest_rows, @m)
+			Set @interest_id = Field(@row, "id_game")
+			Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)     
+
+		for @n = 1 to RowCount(@rows) do
+			Set @flaga = Add(@flaga, 1)
+		
+		next @n     
+		next @m
+
+		/* Online tournaments based on interests */    
+		if @flaga >= 1 then
+	]%%
+	<div>
+		Join us, find you favourite game and check out our upcoming online tournaments!
+	</div> 
+	%%[    
+		for @j = 1 to RowCount (@interest_rows) do
+			Set @row = Row(@interest_rows, @j)
+			Set @interest_id = Field(@row, "id_game")     
+			Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)      
+
+		if RowCount(@rows) >= 1 then       
+			for @i = 1 to RowCount(@rows) do
+				Set @row = Row(@rows, @i)
+				Set @date = Field(@row, "date")
+				Set @city_location = Field(@row, "city_location")
+				Set @name = Field(@row, "name")
+				Set @prize_pool = Field(@row, "prize_pool")
+				Set @currency = Field(@row, "currency")
+				Set @game_id = Field(@row, "game_id")
+	]%%
+	<div style="margin-top:10px; 
+				margin-bottom:10px;">
+		<div style="margin-bottom: 15px;">
+			______________________________________
+		</div>
+		<div style="color: #FF7F00; 
+					padding: 5px; 
+					font-weight: bold; 
+					font-size: 14px;">
+			%%=v(@name)=%%  
+		</div>
+		<div style="padding-left: 15px; 
+					padding-bottom: 5px; 
+					font-size: 12px;">
+			Online, %%=FormatDate(@date, "MMMM d, yyyy")=%%
+		</div>
+		<div style="color: #FF7F00; 
+					padding-left: 15px; 
+					font-size: 12px;"> 
+			Prize pool: %%=v(@prize_pool)=%% %%=v(@currency)=%%
+		</div>
+	</div>
+	%%[
+		next @i
+		endif
+		next @j  
+		endif
+
+		if @flaga < 1 then
+	]%%   
+	<div>
+		Join us and check out our upcoming online tournaments!
+	</div>
+	%%[
+		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online")    
+
+		for @i = 1 to RowCount(@rows) do
+			Set @row = Row(@rows, @i)
+			Set @date = Field(@row, "date")
+			Set @city_location = Field(@row, "city_location")
+			Set @name = Field(@row, "name")
+			Set @prize_pool = Field(@row, "prize_pool")
+			Set @currency = Field(@row, "currency")
+			Set @game_id = Field(@row, "game_id")
+	]%%      
+	<div style="margin-top:10px; 
+				margin-bottom:10px;">
+		<div style="margin-bottom: 15px;">
+			______________________________________
+		</div>
+		<div style="color: #FF7F00; 
+					padding: 5px; 
+					font-weight: bold; 
+					font-size: 14px;">
+			%%=v(@name)=%%  
+		</div>
+		<div style="padding-left: 15px; 
+					padding-bottom: 5px; 
+					font-size: 12px;">
+			Online, %%=FormatDate(@date, "MMMM d, yyyy")=%%
+		</div>
+		<div style="color: #FF7F00; 
+					padding-left: 15px; 
+					font-size: 12px;"> 
+			Prize pool: %%=v(@prize_pool)=%% %%=v(@currency)=%%
+		</div>
+	</div>      
+	%%[
+		next @i
+		endif
+		endif 
+		endif
+	]%%   
+	</div>
+	<div style="margin-bottom: 15px;">
+		______________________________________
+	</div>
+	<div style="padding: 15px;">
+		Visit our website for more information!
+		<div style="width: 150px; 
+					margin-top: 15px;">
+			<a target="_blank" 
+				class="buttonstyles" 
+				style=" font-size: 14px; 
+						font-family: &quot;Lucida Console&quot;, Monaco, monospace; color: #FFFFFF; 
+						text-align: center; 
+						text-decoration: none; 
+						display: block; 
+						background-color: #FF7F00;
+						border: 1px solid #FFFFFF; 
+						padding: 10px; 
+						border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;" 
+				href="https://pub.s50.exacttarget.com/m3tno4qsvay" 
+				title="" alias="" conversion="false" data-linkto="https://pub.s50.exacttarget.com/m3tno4qsvay">Let's go!</a>
+		</div>
+	</div>  
+</div>
