@@ -1,0 +1,125 @@
+%%[
+	Var @fname, @lname, @phone, @id, @rows, @shippingCountry, @shippingState, @shippingZIP, @shippingStreet
+	
+	Set @fname = FirstName
+	Set @lname = LastName
+	Set @phone = Phone
+	Set @email = Email
+	Set @id = ClientID
+	Set @shippingCountry = ShippingCity
+	Set @shippingState = ShippingStreet
+	Set @shippingZIP = ShippingZIP
+	Set @shippingStreet = ShippingState
+	
+	Set @rows = LookupRows("Purchases","ClientID",@id)
+	
+	if empty(@rows) then
+		RaiseError('Error message', true)
+	endif
+]%%
+<div>
+	<p>
+		<strong>Dear %%=v(@fname)=%%!</strong>
+	</p>	
+	<p>
+		Thank you for your purchases! Check out some details about your latest purchase history: 
+	</p>	
+</div>
+<div style="background-color: transparent; padding: 15px 0;font-size:14px;">
+	<table cellpadding="5" cellspacing="0" width="100%">
+		<tr>
+			<td style="width: 70px;">
+				<strong>Client ID:</strong>
+			</td>
+			<td>
+				%%=v(@id)=%%
+			</td>
+		</tr>  
+		<tr>
+			<td>
+				<strong>Name:</strong>
+			</td>
+			<td>
+				%%=v(@fname)=%% %%=v(@lname)=%%
+			</td>
+		</tr> 
+		<tr>
+			<td>
+				<strong>Phone:</strong>
+			</td>
+			<td>
+				%%=v(@phone)=%%
+			</td>
+		</tr>  
+		<tr>
+			<td>
+				<strong>Email:</strong>
+			</td>
+			<td>
+				%%=v(@email)=%%
+			</td>
+		</tr>
+	</table>
+</div>
+%%[
+	for @i=1 to RowCount(@rows) do
+		Set @row = Row(@rows,@i)
+		Set @orderID = Field(@row,"OrderID")
+		Set @product = Field(@row,"ProductName")
+		Set @price = Field(@row,"ProductPrice")
+		Set @imageURL = Field(@row,"ProductImage")
+]%%
+<div style="padding: 15px 0;font-size:14px;">
+	<table cellpadding="5" cellspacing="0" width="100%" border="1" bordercolor="#FF7F00">
+		<tr>
+			<td>
+				<strong>Order ID:</strong>
+			</td>
+			<td>
+				%%=v(@orderID)=%%
+			</td>
+			<th colspan="2" rowspan="4">
+				<img src="%%=v(@imageURL)=%%.png" width="169" alt="Product picture">
+			</th>
+		</tr>  
+		<tr>
+			<td>
+				<strong>Product:</strong>
+			</td>
+			<td>
+				%%=v(@product)=%%
+			</td>
+		</tr> 
+		<tr>
+			<td>
+				<strong>Price:</strong>
+			</td>
+			<td>
+				%%=v(@price)=%% $
+			</td>
+		</tr> 
+		<tr>
+			<td>
+				<strong>Address:</strong>
+			</td>
+			<td>
+				%%=v(@fname)=%% %%=v(@lname)=%% <br>
+				%%=v(@shippingStreet)=%% <br>
+				%%=v(@shippingState)=%% <br>
+				%%=v(@shippingZIP)=%%, %%=v(@shippingCountry)=%%
+			</td>
+		</tr>   
+	</table>
+</div>
+%%[
+	next @i
+	
+	if RowCount(@rows) > 1 then
+]%%
+<p>
+	We want to thank you for your previous purchases with 10% Off Code! Why don't you check our epic merch store?
+</p>
+<a href="default.asp"><img src="https://i.imgur.com/etUMGjr.png" height="200" alt="Product picture"></a>
+%%[
+	endif
+]%%
