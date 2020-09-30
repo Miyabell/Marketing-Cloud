@@ -13,3 +13,6 @@ it's a custom tag system for Bewitched Gaming Tournaments. Transmitter Script is
 ### Scripts:
 - receiver_HTML_AMPScript_content
 - transmitter_HTML_AMPScript_content
+
+### Rendered Examples:
+Few examples saved from actual emails/landing pages.
