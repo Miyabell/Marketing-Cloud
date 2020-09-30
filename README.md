@@ -1,4 +1,4 @@
-# Marketing-Cloud
+# Marketing Cloud Content
 
 ## Marketing Cloud Email Studio Examples:
 - **Email Studio Example 1:** simple transactional email displayig client info, purchases info and promo code. (AMPScript)
