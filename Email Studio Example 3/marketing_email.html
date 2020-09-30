@@ -2,7 +2,7 @@
 	<div>
 	%%[
 		Set @p_city = [city]
-		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "city_location", @p_city)
+		Set @rows = LookupOrderedRows("bg_tournaments", 5, "date asc", "city_location", @p_city)
 
 		/* Display tournaments based on location */ 
 		if RowCount(@rows) >= 1 then
@@ -46,11 +46,11 @@
 		next @i 
 		endif 
 
-		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "city_location", @p_city)
+		Set @rows = LookupOrderedRows("bg_tournaments", 5, "date asc", "city_location", @p_city)
 
 		/* If there is no tournaments in user location */
 		if RowCount(@rows) == 0 then    
-			Set @interest_rows = LookupOrderedRows("bg_user_interest", 3, "id asc", "id_user", [id])    
+			Set @interest_rows = LookupOrderedRows("bg_users_interests", 3, "id asc", "id_user", [id])    
 
 		/* Count tournaments based on interests */  
 		Set @flaga = 0 
@@ -58,7 +58,7 @@
 		for @m = 1 to RowCount (@interest_rows) do
 			Set @row = Row(@interest_rows, @m)
 			Set @interest_id = Field(@row, "id_game")
-			Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)     
+			Set @rows = LookupOrderedRows("bg_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)     
 
 		for @n = 1 to RowCount(@rows) do
 			Set @flaga = Add(@flaga, 1)
@@ -76,7 +76,7 @@
 		for @j = 1 to RowCount (@interest_rows) do
 			Set @row = Row(@interest_rows, @j)
 			Set @interest_id = Field(@row, "id_game")     
-			Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)      
+			Set @rows = LookupOrderedRows("bg_tournaments", 5, "date asc", "type", "Online", "game_id", @interest_id)      
 
 		if RowCount(@rows) >= 1 then       
 			for @i = 1 to RowCount(@rows) do
@@ -122,7 +122,7 @@
 		Join us and check out our upcoming online tournaments!
 	</div>
 	%%[
-		Set @rows = LookupOrderedRows("bg_active_tournaments", 5, "date asc", "type", "Online")    
+		Set @rows = LookupOrderedRows("bg_tournaments", 5, "date asc", "type", "Online")    
 
 		for @i = 1 to RowCount(@rows) do
 			Set @row = Row(@rows, @i)

@@ -1,9 +1,9 @@
 BG_Tournament_ID,BG_First_Name,BG_Last_Name,BG_Nickname,BG_Sing_Up_Date,BG_Email,BG_Transactional_Mail,BG_Marketing_Email
-a0P2X00000XTBz5UAH,Adrian,Test,Nickname1,7/20/2020 12:00:00 AM,example@example.com.pl,True,True,
-a0P2X00000XTBz7UAH,Aleksandra,Testuser,Nickname2,7/20/2020 12:00:00 AM,example+1@example.com.pl,True,True,
-a0P2X00000XTOMOUA5,Adrian,Test,Nickname3,7/20/2020 12:00:00 AM,example+2@example.com.pl,True,True,
-a0P2X00000XTOMOUA5,Adrian,Testuser,Nickname4,7/20/2020 12:00:00 AM,example+4@example.com.pl,True,True,
-a0P2X00000XTOMOUA5,Aleksandra,Test,Nickname5,7/20/2020 12:00:00 AM,example+5@example.com.pl,True,True,
-a0P2X00000XTBz7UAH,Adrian,Testuser,Nickname6,7/20/2020 12:00:00 AM,example+6@example.com.pl,True,True,
-a0P2X00000XTOMOUA5,Overwatch,Test,Nickname7,7/20/2020 12:00:00 AM,test@example.com.pl,True,True,
-a0P2X00000XTBz7UAH,Hearthstone,Test,Nickname8,7/20/2020 12:00:00 AM,test@example.com.pl,True,True,
+a0P2X00000XTBz5UAH,Adrian,Test,Nickname1,7/20/2020 0:00,example@example.com.pl,true,true
+a0P2X00000XTBz7UAH,Aleksandra,Testuser,Nickname2,7/20/2020 0:00,example+1@example.com.pl,true,true
+a0P2X00000XTOMOUA5,Adrian,Test,Nickname3,7/20/2020 0:00,example+2@example.com.pl,true,true
+a0P2X00000XTOMOUA5,Adrian,Testuser,Nickname4,7/20/2020 0:00,example+4@example.com.pl,true,true
+a0P2X00000XTOMOUA5,Aleksandra,Test,Nickname5,7/20/2020 0:00,example+5@example.com.pl,true,true
+a0P2X00000XTBz7UAH,Adrian,Testuser,Nickname6,7/20/2020 0:00,example+6@example.com.pl,true,true
+a0P2X00000XTOMOUA5,Overwatch,Test,Nickname7,7/20/2020 0:00,test@example.com.pl,true,true
+a0P2X00000XTBz7UAH,Hearthstone,Test,Nickname8,7/20/2020 0:00,test@example.com.pl,true,true
