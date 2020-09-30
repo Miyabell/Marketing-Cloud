@@ -10,4 +10,4 @@ Simply place Example Email HTML content inside HTML contnt block. Has simple per
 - display previous purchases detail information,
 - display 10% off code depending on count of previous purchases.
 
-GL & HF
+## GL & HF
