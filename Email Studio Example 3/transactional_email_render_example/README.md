@@ -1,1 +1,1 @@
-## Download and open in you browser to see the result!
+## Simply download and open in you browser to see rendered results :)
