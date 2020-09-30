@@ -1,0 +1,91 @@
+<div>
+	<div style="color: white; font-weight: bold; font-size: 15px; padding: 15px;">
+		Tournaments with tags
+	</div>
+	%%[
+		Set @tournaments = LookupOrderedRows("bg_active_tournaments", 5, "date desc", "type", "LAN")
+		
+		for @i = 1 to RowCount(@tournaments) do
+			Set @row = Row(@tournaments, @i)
+			Set @id = Field(@row, "id")
+			Set @date = Field(@row, "date")
+			Set @city_location = Field(@row, "city_location")
+			Set @name = Field(@row, "name")
+			Set @currency = Field(@row, "currency")
+			Set @prize_pool = Field(@row, "prize_pool")
+
+			Set @URL = ConCat('https://pub.s50.exacttarget.com/ul2ymd33mom?&id=', @id)
+	]%%    
+	<div style="background: #272727; 
+				padding: 10px; 
+				margin: 10px; 
+				border: 1px dotted #FF7F00; 
+				color: white; 
+				font-size: 10px;">    
+		<div style="color: #FF7F00; 
+					padding: 5px; 
+					font-weight: bold; 
+					font-size: 14px;">
+			%%=v(@name)=%%  
+		</div>
+		<div style="margin-bottom: 15px;">
+			______________________________________
+		</div>
+		<div style="padding-left: 15px; 
+					padding-bottom: 5px; 
+					font-size: 12px;">
+			Online, %%=FormatDate(@date, "MMMM d, yyyy")=%%
+		</div>
+		<div style="color: #FF7F00; 
+					padding-left: 15px; 
+					font-size: 12px;"> 
+			Prize pool: %%=v(@prize_pool)=%% %%=v(@currency)=%%
+		</div>
+			<span style="	padding-left: 15px; 
+						color: #FF7F00;">
+				tags: 
+			</span>| 
+		%%[
+			Set @t_tags = LookupOrderedRows("bg_tournament_tags", 5, "id desc", "tournament_id", @id)
+			
+			for @k = 1 to RowCount(@t_tags) do
+				Set @row1 = Row(@t_tags, @k)
+				Set @tag_id = Field(@row1, "tag_id")
+				Set @tags = LookupOrderedRows("bg_tag", 3, "id desc", "id", @tag_id)
+				
+					for @m = 1 to RowCount(@tags) do
+						 Set @row2 = Row(@tags, @m)
+						 Set @tag_name = Field (@row2, "name")
+						 Set @tag_URL = ConCat('https://pub.s50.exacttarget.com/phx0bq42tus?&tag_id=', @tag_id)
+		 ]%%  
+		 <span> 
+			<a href="%%=v(@tag_URL)=%%">%%=v(@tag_name)=%%</a>
+		 </span> | 
+		%%[
+					next @m     
+			next @k 
+		]%%
+		<div style="width: 80px; padding: 15px;">
+			<a 	target="_blank" 
+				class="buttonstyles" 
+				style=" font-size: 12px; 
+						font-family: &quot;Lucida Console&quot;, Monaco, monospace; 
+						color: #FFFFFF; 
+						text-align: left; 
+						text-decoration: none; 
+						display: block; 
+						background-color: #FF7F00; 
+						border: 1px solid #FFFFFF; 
+						padding: 10px; 
+						border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;" 
+				href="%%=v(@URL)=%%" 
+				title="" 
+				alias="" 
+				conversion="false" 
+				data-linkto="http://">Sign up</a>
+		</div>
+	</div>
+	%%[ 
+		next @i 
+	]%%
+</div>
