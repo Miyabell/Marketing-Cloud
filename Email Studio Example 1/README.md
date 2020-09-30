@@ -1,13 +1,20 @@
-## Data Extensions to create:
-- Clients: Standard sendable DE with client information (create and import based on Clients20200930.csv file)
-- Purchases: Standard DE with simple purchases information (create and import based on Purchases20200930.csv file)
+# Example number 3: Bewitched Gaming
 
-## How it works?
-Simply place Example Email HTML content inside HTML contnt block. Has simple personalization made with AMPScript. Can be described as transactional email.
+## Background:
+Bewitched Gaming is an organisations which focus on orginising e-sport events and gaming tournaments.
 
-## AMPScript will:
-- display client information,
-- display previous purchases detail information,
-- display 10% off code depending on count of previous purchases.
+## Content:
+### Data extensions:
+- **bg_transactional_email** - ***sendable*** Data Extension with example players data. Represents sign-ups for tournaments.
+- **bg_marketing_test** - ***sendable*** Data Extension with example players data.
+- **bg_tournaments** - Data Extenension with data about upcoming tournaments. (name, date, prize pool, game id etc.)
+- **bg_user_interest** - Data Extension with data about players interests. (what games are users interested in)
+- **bg_game** - Data Extension with data about games played on Bewitched tournaments (title, type, team size etc.)
 
-## GL & HF
+### Email Content:
+- **transactional_email.html** - transactional email which display data about sign-ups for tournaments. It's quering informations from two Data Extenions: bg_tournaments, and bg_game.
+- **marketing_email.html** - marketing email which dynamically display data about upcoming tournaments depending on users city. If there is no tournaments in users location then online tournaments should be displayed.
+
+### HTML rendered via Preview and Test
+- **marketing_email_render_examples** - few examples how our example of transactional email renders
+- **transactional_email_render_examples** - few examples how our example of marketing email renders
