@@ -1,0 +1,13 @@
+id,first_name,last_name,nickname,age,gender,city,transactional_email,commercial_email,email
+a0O2X00000RNeEsUAL,Hubert,Test,Nickname1,25,male,Warsaw,False,False,example@example.pl
+a0O2X00000RNeEtUAL,Wojciech,Testuser,Nickname2,23,male,Cracow,False,False,example@example.pl
+a0O2X00000RNeFEUA1,Kamil,Test,Nickname3,20,male,Cracow,False,False,example@example.pl
+a0O2X00000RNeFFUA1,Konrad,Testuser,Nickname4,23,male,Warsaw,False,False,example@example.pl
+a0O2X00000RNeFGUA1,Krzysztof,Test,Nickname5,24,male,Warsaw,False,False,example+1@example.com
+a0O2X00000RNeFHUA1,Kaja,Testuser,Nickname6,27,female,Katovice,False,False,example.example@example.pl
+a0O2X00000RNeFIUA1,Artur,Test,Nickname7,27,male,Warsaw,False,False,artur.example@example.pl
+a0O2X00000RNeFJUA1,Adrian,Testuser,Nickname8,26,male,Katovice,False,False,example.example@example.pl
+a0O2X00000RNeFKUA1,Aleksandra,Test,Nickname9,25,female,Kielce,False,False,example@example.com
+a0O2X00000RNeFLUA1,Zuzanna,Testuser,Nickname10,28,female,Katovice,False,False,example.example@example.pl
+a0O2X00000ROmtMUAT,Tomek,Test,Nickname11,26,male,Legionowo,False,False,example@example.com
+a0O2X00000ROVm9UAH,Adrian,Testuser,Nickname12,26,male,Legionowo,False,False,example.example@example.com.pl
