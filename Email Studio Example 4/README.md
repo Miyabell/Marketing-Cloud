@@ -1,9 +1,9 @@
 # Simple Tag System
 
 ## How it works:
-it's a custom tag system for Bewitched Gaming Tournaments. Transmitter Script is showing tournament with tags. After clicking tag link, user will be redirected to a page that shows tournaments with that tag. While on page, user can freerly loop through tags. (AMPScript)
+it's a custom tag system for Bewitched Gaming Tournaments. Transmitter Script is showing tournament with tags. After clicking tag link, user will be redirected to a page with Receiver Script that shows tournaments with that tag. Tag ID is passed via URL parameter. While on page, user can freerly loop through tags. (AMPScript)
 
-***Remember to place working URLs (for example for your landing page <Marketing Cloud Web Pages)!***
+***Remember to place working URLs (for example for your landing page hosted on Marketing Cloud Web Pages)!***
 
 ## Content:
 ### Data Extensions:
