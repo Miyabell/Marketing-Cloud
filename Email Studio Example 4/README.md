@@ -1,4 +1,4 @@
-# Example number 1: Bewitched Gaming - Simple Tag System
+# Example number 4: Bewitched Gaming - Simple Tag System
 
 ## How it works:
 it's a custom tag system for Bewitched Gaming Tournaments. Transmitter Script is showing tournament with tags. After clicking tag link, user will be redirected to a page with Receiver Script that shows tournaments with that tag. Tag ID is passed via URL parameter. While on page, user can freerly loop through tags. (AMPScript)
