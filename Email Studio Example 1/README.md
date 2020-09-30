@@ -1,4 +1,4 @@
-# Example number 3: Bewitched Gaming
+# Example number 1: Bewitched Gaming
 
 ## Background:
 Bewitched Gaming is an organisations which focus on orginising e-sport events and gaming tournaments.
